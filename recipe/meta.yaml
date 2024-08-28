@@ -6,10 +6,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/jupyter-robotics/{{ name }}/releases/download/v{{ version }}/jupyterlab_niryo_one-{{ version }}.tar.gz
+  url: https://github.com/jupyter-robotics/{{ name }}/releases/download/v{{ version }}/{{ name|replace("-", "_") }}-{{ version }}.tar.gz
   sha256: 65ae8ec54321cdfdbc01b5e3d93731d8656e34cd4737cd39b5775819097bb8b5
 
-build:s
+build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
