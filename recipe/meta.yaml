@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-niryo-one" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -16,12 +16,15 @@ build:
 
 requirements:
   host:
-    - jupyter_packaging
+    - jupyter-packaging
     - pip
-    - python >=3.7
+    - python >=3.8
+    - hatchling >=1.5.0
+    - hatch-nodejs-version >=0.3.2
+    - hatch-jupyter-builder
   run:
-    - jupyterlab-blockly >=0.1.0a5,<0.2
-    - python >=3.7
+    - jupyterlab-blockly >=0.3.3,<0.4
+    - python >=3.8
 
 test:
   imports:
