@@ -1,13 +1,13 @@
 {% set name = "jupyterlab-niryo-one" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_niryo_one-{{ version }}.tar.gz
-  sha256: 312fe3722fcceadb9ba2419087178d8de5223abb0c2c04bd2bfd49969482f772
+  url: https://github.com/jupyter-robotics/{{ name }}/releases/download/v{{ version }}/{{ name|replace("-", "_") }}-{{ version }}.tar.gz
+  sha256: 65ae8ec54321cdfdbc01b5e3d93731d8656e34cd4737cd39b5775819097bb8b5
 
 build:
   noarch: python
@@ -16,12 +16,15 @@ build:
 
 requirements:
   host:
-    - jupyter_packaging
+    - jupyter-packaging
     - pip
-    - python >=3.7
+    - python >=3.8
+    - hatchling >=1.5.0
+    - hatch-nodejs-version >=0.3.2
+    - hatch-jupyter-builder
   run:
-    - jupyterlab-blockly >=0.1.0a5,<0.2
-    - python >=3.7
+    - jupyterlab-blockly >=0.3.3,<0.4
+    - python >=3.8
 
 test:
   imports:
